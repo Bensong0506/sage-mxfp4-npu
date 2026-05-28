@@ -8,6 +8,18 @@
 
 ---
 
+## 🚀 内网 FP4 机器上跑「真量化」请直接看 [`real_quant/AGENT.md`](real_quant/AGENT.md)
+
+> 如果你在**支持原生 FP4 的昇腾机器**上（有 `torch_npu.float4_e2m1fn_x2`），想验证**真 MXFP4 量化注意力的精度与加速**，不用读下面的伪量化部分——直接：
+> ```bash
+> cd real_quant && bash run.sh
+> ```
+> `real_quant/AGENT.md` 是写给 agent 的完整手册（探测环境 → 自测精度/加速 → Wan2.1 端到端）。本仓库其余部分（`ops/`、`route_b/`）是**伪量化**实现，用于在没有 FP4 的机器上验证精度。
+
+---
+
+---
+
 ## 1. 这是什么 / 原理
 
 注意力前先对 Q/K 做 **Hadamard 旋转**（抹平激活分布、减少量化离群值），再把 Q/K 量化成 **MXFP4**（每 64 个元素共享 1 个 8-bit 指数 + 每元素 4-bit：1 sign + 3 bit），注意力本身复用 CANN 内置 `npu_fusion_attention`。
