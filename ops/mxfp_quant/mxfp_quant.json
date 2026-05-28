@@ -1,0 +1,41 @@
+[
+    {
+        "op": "MxfpQuant",
+        "input_desc": [
+            {
+                "name": "x",
+                "param_type": "required",
+                "format": ["ND"],
+                "type": ["fp16", "bf16", "fp32"]
+            }
+        ],
+        "output_desc": [
+            {
+                "name": "y",
+                "param_type": "required",
+                "format": ["ND"],
+                "type": ["fp16", "bf16", "fp32"]
+            }
+        ],
+        "attr": [
+            {
+                "name": "block_size",
+                "param_type": "optional",
+                "type": "int",
+                "default_value": 64
+            },
+            {
+                "name": "ebits",
+                "param_type": "optional",
+                "type": "int",
+                "default_value": 2
+            },
+            {
+                "name": "mbits",
+                "param_type": "optional",
+                "type": "int",
+                "default_value": 3
+            }
+        ]
+    }
+]

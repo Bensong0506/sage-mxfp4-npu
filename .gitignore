@@ -1,0 +1,19 @@
+# build artifacts
+build_out/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.o
+*.so
+*.run
+fusion_result.json
+
+# compiled test binaries
+ops/mxfp_quant/test_mxfp_quant
+ops/mxfp_quant/bench_mxfp_quant
+
+# media
+*.mp4
+*.png
+*.npy
